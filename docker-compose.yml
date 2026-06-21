@@ -1,0 +1,44 @@
+# Entorno de desarrollo: una base PostgreSQL y la app Django.
+#
+# Levantar todo:        docker compose up --build
+# Crear superusuario:   docker compose exec web python manage.py createsuperuser
+# Abrir una shell:      docker compose exec web bash
+# Apagar:               docker compose down   (agregá -v para borrar la base)
+
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: acopio
+      POSTGRES_PASSWORD: acopio
+      POSTGRES_DB: acopio
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U acopio"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    # Espera implícita por el healthcheck de la base, migra y levanta el server.
+    command: sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      # Dentro de Docker, la base se llama 'db' (no localhost). Esto pisa
+      # el DATABASE_URL del .env, que apunta a localhost para correr sin Docker.
+      DATABASE_URL: postgres://acopio:acopio@db:5432/acopio
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
