@@ -1,9 +1,68 @@
 {% extends "base.html" %}
 
-{% block title %}Inicio &mdash; Acopio{% endblock %}
+{% block title %}Agroconsult — Acopio de cereales{% endblock %}
 
 {% block content %}
-    <h1>Nombre del acopio</h1>
-    <p>[Relleno] Frase breve que describa el negocio. Después la cambiamos por el texto real.</p>
-    <p><a href="{% url 'sitio:servicios' %}">Conocé nuestros servicios &rarr;</a></p>
+<section class="hero">
+    <div class="container hero-inner">
+        <p class="eyebrow">Acopio de cereales · Santa Fe</p>
+        <h1 class="hero-title">El cereal de tus campos, guardado como corresponde.</h1>
+        <p class="hero-sub">[Relleno] Recibimos, acondicionamos y almacenamos tu cosecha a tu nombre. Y cuando quieras saber cuánto tenés guardado, lo consultás en línea.</p>
+        <div class="hero-cta">
+            <a class="btn btn-primary" href="{% url 'sitio:servicios' %}">Ver servicios</a>
+            <a class="btn btn-ghost" href="#">Ingresar al portal</a>
+        </div>
+    </div>
+    <svg class="silos" viewBox="0 0 1200 160" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+        <rect x="0" y="150" width="1200" height="8" fill="var(--ambar)"/>
+        <g fill="var(--carbon)">
+            <path d="M520 150 V70 a30 30 0 0 1 60 0 V150 Z"/>
+            <path d="M600 150 V50 a36 36 0 0 1 72 0 V150 Z"/>
+            <path d="M692 150 V84 a26 26 0 0 1 52 0 V150 Z"/>
+        </g>
+    </svg>
+</section>
+
+<section class="seccion container">
+    <p class="eyebrow">Qué hacemos</p>
+    <h2 class="seccion-title">Servicios</h2>
+    <div class="cards">
+        <article class="card">
+            <svg class="card-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 21 V9 a5 5 0 0 1 10 0 V21"/>
+                <line x1="4" y1="21" x2="20" y2="21"/>
+            </svg>
+            <h3>Acopio y guarda</h3>
+            <p>[Relleno] Almacenamos tu cereal acondicionado en planta, registrado a tu nombre.</p>
+        </article>
+        <article class="card">
+            <svg class="card-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3 C12 3 6 10 6 15 a6 6 0 0 0 12 0 C18 10 12 3 12 3 Z"/>
+            </svg>
+            <h3>Acondicionamiento</h3>
+            <p>[Relleno] Secado y limpieza para que el grano se conserve en condiciones.</p>
+        </article>
+        <article class="card">
+            <svg class="card-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="4" x2="12" y2="20"/>
+                <line x1="6" y1="20" x2="18" y2="20"/>
+                <line x1="5" y1="8" x2="19" y2="8"/>
+                <path d="M5 8 L2.5 13 a3 3 0 0 0 5 0 Z"/>
+                <path d="M19 8 L16.5 13 a3 3 0 0 0 5 0 Z"/>
+            </svg>
+            <h3>Pesaje</h3>
+            <p>[Relleno] Balanza propia: cada movimiento queda registrado al kilo.</p>
+        </article>
+    </div>
+</section>
+
+<section class="portal-strip">
+    <div class="container portal-inner">
+        <div class="portal-text">
+            <h2>Consultá tu resumen de cuenta</h2>
+            <p>[Relleno] Tus kilos guardados y tus movimientos, disponibles cuando los necesites.</p>
+        </div>
+        <a class="btn btn-amber" href="#">Ingresar al portal</a>
+    </div>
+</section>
 {% endblock %}

@@ -1,22 +1,149 @@
+
+/* ====== Tokens de diseño: identidad Agroconsult ====== */
+:root {
+    --carbon: #36373C;
+    --carbon-osc: #2C2D31;
+    --texto: #2C2D31;
+    --gris: #6E7075;
+    --ambar: #F4B12A;
+    --ambar-osc: #D8941A;
+    --blanco: #FFFFFF;
+    --hueso: #F7F6F2;
+    --linea: #E7E5DF;
+
+    --max: 1080px;
+    --radio: 14px;
+}
+
 * { box-sizing: border-box; }
 
 body {
-    font-family: system-ui, -apple-system, sans-serif;
     margin: 0;
-    line-height: 1.6;
-    color: #1a1a1a;
+    background: var(--hueso);
+    color: var(--texto);
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.7;
 }
 
-header { border-bottom: 1px solid #ddd; padding: 1rem; }
-nav a { margin-right: 1rem; text-decoration: none; color: #333; }
-nav a:hover { text-decoration: underline; }
+h1, h2, h3, h4, .brand-name { font-family: "Zilla Slab", Georgia, serif; line-height: 1.1; }
 
-main { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+a { color: var(--carbon); }
 
-footer {
-    border-top: 1px solid #ddd;
-    padding: 1rem;
-    text-align: center;
-    color: #777;
-    font-size: 0.9rem;
+.container { max-width: var(--max); margin: 0 auto; padding: 0 1.25rem; }
+
+/* ====== Marca de dos tonos (como el logo) ====== */
+.brand-name { font-size: 1.35rem; }
+.brand-name .b1 { color: var(--carbon); font-weight: 700; }
+.brand-name .b2 { color: var(--gris); font-weight: 600; }
+
+/* ====== Etiquetas y botones ====== */
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ambar-osc);
+    margin: 0 0 0.75rem;
 }
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    font-family: "Source Sans 3", sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    text-decoration: none;
+    transition: transform 0.08s ease, background 0.15s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary { background: var(--carbon); color: var(--blanco); }
+.btn-primary:hover { background: var(--carbon-osc); }
+.btn-ghost { border-color: var(--carbon); color: var(--carbon); }
+.btn-ghost:hover { background: rgba(54, 55, 60, 0.07); }
+.btn-amber { background: var(--ambar); color: var(--carbon-osc); }
+.btn-amber:hover { background: var(--ambar-osc); }
+
+/* ====== Header ====== */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--hueso);
+    border-bottom: 1px solid var(--linea);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand-mark { width: 30px; height: 30px; }
+.site-nav { display: flex; align-items: center; gap: 1.5rem; }
+.site-nav a { color: var(--texto); text-decoration: none; font-weight: 600; font-size: 0.97rem; }
+.site-nav a:hover { color: var(--ambar-osc); }
+.nav-portal { background: var(--ambar); color: var(--carbon-osc) !important; border-radius: 8px; padding: 0.4rem 0.95rem; }
+.nav-portal:hover { background: var(--ambar-osc); }
+
+/* ====== Hero ====== */
+.hero { background: var(--hueso); position: relative; padding-top: 4.5rem; }
+.hero-inner { max-width: 740px; padding-bottom: 3rem; }
+.hero-title { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; color: var(--carbon-osc); margin: 0 0 1.2rem; }
+.hero-sub { font-size: 1.2rem; color: var(--gris); margin: 0 0 2rem; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+.silos { display: block; width: 100%; height: auto; }
+
+/* ====== Secciones ====== */
+.seccion { padding: 4.5rem 1.25rem; }
+.seccion-title { font-size: clamp(1.7rem, 3vw, 2.2rem); font-weight: 600; margin: 0 0 2.2rem; }
+
+.cards { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.card { background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--radio); padding: 1.9rem; }
+.card-ic { width: 34px; height: 34px; color: var(--carbon); margin-bottom: 1rem; }
+.card h3 { font-size: 1.3rem; font-weight: 600; margin: 0 0 0.5rem; }
+.card p { margin: 0; color: var(--gris); }
+
+/* ====== Franja del portal ====== */
+.portal-strip { background: var(--carbon); color: var(--blanco); padding: 3.2rem 1.25rem; }
+.portal-inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+.portal-text h2 { font-size: 1.7rem; font-weight: 600; margin: 0 0 0.4rem; }
+.portal-text p { margin: 0; color: #C9C9CC; }
+
+/* ====== Footer ====== */
+.site-footer { background: var(--carbon-osc); color: #C9C9CC; padding: 3rem 0 1.5rem; }
+.footer-inner { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.site-footer .brand-name .b1 { color: var(--blanco); }
+.site-footer .brand-name .b2 { color: #AEAEB2; }
+.footer-col h4 { color: var(--ambar); font-size: 1.05rem; font-weight: 600; margin: 0 0 0.5rem; }
+.footer-col p, .footer-brand p { margin: 0.3rem 0 0; font-size: 0.97rem; }
+.footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.12); margin-top: 2rem; padding-top: 1.2rem; font-size: 0.88rem; }
+
+/* ====== Accesibilidad ====== */
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--ambar); outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+}
+
+@media (max-width: 600px) {
+    .header-inner { height: auto; padding: 0.8rem 1.25rem; flex-wrap: wrap; gap: 0.6rem; }
+    .site-nav { gap: 1rem; flex-wrap: wrap; }
+}
+
+/* ====== Páginas internas ====== */
+.page-head { background: var(--hueso); padding: 3.5rem 1.25rem 2.5rem; border-bottom: 1px solid var(--linea); }
+.page-title { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 700; color: var(--carbon-osc); margin: 0; }
+.amber-rule { width: 56px; height: 4px; background: var(--ambar); border: 0; border-radius: 2px; margin: 1.1rem 0 0; }
+
+.prose { max-width: 720px; }
+.prose p { margin: 0 0 1.15rem; }
+
+.servicio-detalle { color: var(--gris); font-size: 0.97rem; margin-top: 0.6rem; }
+
+.valores { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 2.5rem; }
+.valor { border-left: 3px solid var(--ambar); border-radius: 0; padding-left: 1rem; }
+.valor h3 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.4rem; }
+.valor p { margin: 0; color: var(--gris); font-size: 0.97rem; }
+
+.contact-card .c-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gris); font-weight: 600; margin: 0.2rem 0; }
+.contact-card .c-value { font-size: 1.15rem; color: var(--texto); font-weight: 600; margin: 0; }
+.nota { margin-top: 2.5rem; color: var(--gris); }
