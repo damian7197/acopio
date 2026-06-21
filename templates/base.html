@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Acopio{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'sitio:home' %}">Inicio</a>
+            <a href="{% url 'sitio:servicios' %}">Servicios</a>
+            <a href="{% url 'sitio:nosotros' %}">Nosotros</a>
+            <a href="{% url 'sitio:contacto' %}">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; {% now "Y" %} Acopio &middot; Sitio en construcción</p>
+    </footer>
+</body>
+</html>
