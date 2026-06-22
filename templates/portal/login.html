@@ -1,0 +1,21 @@
+{% extends "portal/base_portal.html" %}
+
+{% block title %}Ingresar — Portal Agroconsult{% endblock %}
+
+{% block content %}
+<div class="login-wrap">
+    <h1>Portal de clientes</h1>
+    <p class="login-sub">Ingresá con tu número de cliente.</p>
+    {% if form.errors %}
+    <p class="login-error">Número de cliente o contraseña incorrectos.</p>
+    {% endif %}
+    <form method="post" class="login-form">
+        {% csrf_token %}
+        <label for="id_username">Número de cliente</label>
+        {{ form.username }}
+        <label for="id_password">Contraseña</label>
+        {{ form.password }}
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+    </form>
+</div>
+{% endblock %}

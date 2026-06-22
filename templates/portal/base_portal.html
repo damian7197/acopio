@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Portal — Agroconsult{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="{% url 'portal:resumen' %}">
+                <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+                    <circle cx="20" cy="20" r="13" fill="var(--ambar)"/>
+                    <path d="M15 12 a13 13 0 0 0 -3 13" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" opacity="0.85"/>
+                </svg>
+                <span class="brand-name"><span class="b1">Agro</span><span class="b2">consult</span></span>
+            </a>
+            {% if user.is_authenticated %}
+            <div class="portal-user">
+                <span>Cliente {{ user.username }}</span>
+                <form action="{% url 'portal:logout' %}" method="post" class="logout-form">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-link">Salir</button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+    </header>
+
+    <main class="portal-main">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

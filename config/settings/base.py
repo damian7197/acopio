@@ -88,3 +88,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Autenticación del portal
+LOGIN_URL = "portal:login"
+LOGIN_REDIRECT_URL = "portal:resumen"
+LOGOUT_REDIRECT_URL = "portal:login"

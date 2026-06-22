@@ -10,7 +10,7 @@
         <p class="hero-sub">[Relleno] Recibimos, acondicionamos y almacenamos tu cosecha a tu nombre. Y cuando quieras saber cuánto tenés guardado, lo consultás en línea.</p>
         <div class="hero-cta">
             <a class="btn btn-primary" href="{% url 'sitio:servicios' %}">Ver servicios</a>
-            <a class="btn btn-ghost" href="#">Ingresar al portal</a>
+            <a class="btn btn-ghost" href="{% url 'portal:login' %}">Ingresar al portal</a>
         </div>
     </div>
     <svg class="silos" viewBox="0 0 1200 160" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
@@ -62,7 +62,7 @@
             <h2>Consultá tu resumen de cuenta</h2>
             <p>[Relleno] Tus kilos guardados y tus movimientos, disponibles cuando los necesites.</p>
         </div>
-        <a class="btn btn-amber" href="#">Ingresar al portal</a>
+        <a class="btn btn-amber" href="{% url 'portal:login' %}">Ingresar al portal</a>
     </div>
 </section>
 {% endblock %}

@@ -1,0 +1,44 @@
+{% extends "portal/base_portal.html" %}
+
+{% block title %}Resumen de cuenta — Agroconsult{% endblock %}
+
+{% block content %}
+<div class="container portal-content">
+    <p class="eyebrow">Tu cuenta</p>
+    <h1 class="page-title">Resumen de cuenta</h1>
+    <p class="resumen-cliente">{{ cliente.numero_cliente }} — {{ cliente.nombre }}</p>
+
+    <h2 class="sub">Saldo por cosecha y especie</h2>
+    {% if saldos %}
+    <div class="saldo-grid">
+        {% for s in saldos %}
+        <div class="saldo-card">
+            <p class="saldo-especie">{{ s.especie }}</p>
+            <p class="saldo-kilos">{{ s.kilos }} kg</p>
+            <p class="saldo-cosecha">Cosecha {{ s.cosecha }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>No hay movimientos registrados todavía.</p>
+    {% endif %}
+
+    <h2 class="sub">Movimientos</h2>
+    <table class="mov-table">
+        <thead>
+            <tr><th>Fecha</th><th>Cosecha</th><th>Especie</th><th>Tipo</th><th>Kilos</th></tr>
+        </thead>
+        <tbody>
+            {% for m in movimientos %}
+            <tr>
+                <td>{{ m.fecha }}</td>
+                <td>{{ m.cosecha }}</td>
+                <td>{{ m.especie }}</td>
+                <td>{{ m.get_tipo_display }}</td>
+                <td>{{ m.kilos }} kg</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
