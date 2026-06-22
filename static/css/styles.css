@@ -179,3 +179,6 @@ a:focus-visible, .btn:focus-visible { outline: 3px solid var(--ambar); outline-o
 .login-form input { padding: 0.6rem 0.7rem; border: 1px solid var(--linea); border-radius: 8px; font: inherit; width: 100%; }
 .login-form input:focus { outline: 2px solid var(--ambar); outline-offset: 1px; }
 .login-form .btn { margin-top: 1.3rem; justify-content: center; }
+
+.tipo-ingreso { color: #2E7D32; font-weight: 600; }
+.tipo-egreso { color: #B23B2E; font-weight: 600; }

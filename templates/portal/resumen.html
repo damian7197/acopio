@@ -14,7 +14,7 @@
         {% for s in saldos %}
         <div class="saldo-card">
             <p class="saldo-especie">{{ s.especie }}</p>
-            <p class="saldo-kilos">{{ s.kilos }} kg</p>
+            <p class="saldo-kilos">{{ s.kilos|floatformat:0 }} kg</p>
             <p class="saldo-cosecha">Cosecha {{ s.cosecha }}</p>
         </div>
         {% endfor %}
@@ -31,11 +31,11 @@
         <tbody>
             {% for m in movimientos %}
             <tr>
-                <td>{{ m.fecha }}</td>
+                <td>{{ m.fecha|date:"d/m/Y" }}</td>
                 <td>{{ m.cosecha }}</td>
                 <td>{{ m.especie }}</td>
-                <td>{{ m.get_tipo_display }}</td>
-                <td>{{ m.kilos }} kg</td>
+                <td class="tipo-{{ m.tipo }}">{{ m.get_tipo_display }}</td>
+                <td>{{ m.kilos|floatformat:0 }} kg</td>
             </tr>
             {% endfor %}
         </tbody>

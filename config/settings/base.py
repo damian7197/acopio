@@ -93,3 +93,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_URL = "portal:login"
 LOGIN_REDIRECT_URL = "portal:resumen"
 LOGOUT_REDIRECT_URL = "portal:login"
+
+# Formato de números: separador de miles (es-AR -> 42.000)
+USE_THOUSAND_SEPARATOR = True
