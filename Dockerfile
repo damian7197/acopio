@@ -14,6 +14,6 @@ COPY . .
 
 EXPOSE 8000
 
-# Por defecto, servidor de producción. En desarrollo, docker-compose
-# sobrescribe este comando por runserver.
-CMD ["gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000"]
+# Por defecto: migra, recopila estáticos y levanta gunicorn (producción/Render).
+# En desarrollo, docker-compose sobrescribe este comando por runserver.
+CMD ["sh", "-c", "python manage.py migrate --noinput && python manage.py collectstatic --noinput && gunicorn config.wsgi:application --bind 0.0.0.0:${PORT:-8000}"]
